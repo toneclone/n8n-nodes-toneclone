@@ -1,11 +1,21 @@
 {
   "name": "n8n-nodes-toneclone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Write with AI without sounding like AI. Write with AI using your unique voice and style with a model trained on your writing.\n\nTo get started, you'll need a ToneClone API key from https://app.toneclone.ai/api-keys",
   "license": "MIT",
   "homepage": "https://github.com/toneclone/n8n-nodes-toneclone#readme",
-  "keywords": ["n8n-community-node-package", "ai", "writing", "content-generation", "persona", "toneclone"],
-  "author": { "name": "Jon Fox", "email": "n8n@toneclone.ai" },
+  "keywords": [
+    "n8n-community-node-package",
+    "ai",
+    "writing",
+    "content-generation",
+    "persona",
+    "toneclone"
+  ],
+  "author": {
+    "name": "Jon Fox",
+    "email": "n8n@toneclone.ai"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/toneclone/n8n-nodes-toneclone.git"
@@ -22,11 +32,17 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "credentials": ["dist/credentials/TonecloneApi.credentials.js"],
-    "nodes": ["dist/nodes/Toneclone/ToneClone.node.js"]
+    "credentials": [
+      "dist/credentials/TonecloneApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Toneclone/ToneClone.node.js"
+    ]
   },
   "devDependencies": {
     "@n8n/node-cli": "*",
@@ -38,5 +54,7 @@
     "ts-jest": "^29.1.2",
     "typescript": "5.9.2"
   },
-  "peerDependencies": { "n8n-workflow": "*" }
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
 }
