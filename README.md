@@ -34,7 +34,7 @@ The node uses a single credential type: **ToneClone API**.
 
 ## Operations
 
-### Content Generation (`resource = query`)
+### Write with your persona (`resource = query`)
 
 - **Generate Content:** Produce text from a persona using an input prompt.
   - *Persona* – Select or reference a persona ID.

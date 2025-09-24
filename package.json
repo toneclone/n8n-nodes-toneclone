@@ -1,11 +1,11 @@
 {
   "name": "n8n-nodes-toneclone",
-  "version": "0.1.0",
-  "description": "Write with AI in your voice and style - Generate content that sounds like you, not a robot",
+  "version": "1.0.0",
+  "description": "Write with AI without sounding like AI. Write with AI using your unique voice and style with a model trained on your writing.\n\nTo get started, you'll need a ToneClone API key from https://app.toneclone.ai/api-keys",
   "license": "MIT",
   "homepage": "https://github.com/toneclone/n8n-nodes-toneclone#readme",
   "keywords": ["n8n-community-node-package", "ai", "writing", "content-generation", "persona", "toneclone"],
-  "author": { "name": "Jon Fox", "email": "jfox85@gmail.com" },
+  "author": { "name": "Jon Fox", "email": "n8n@toneclone.ai" },
   "repository": {
     "type": "git",
     "url": "https://github.com/toneclone/n8n-nodes-toneclone.git"

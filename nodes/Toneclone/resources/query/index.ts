@@ -13,10 +13,10 @@ export const queryDescription: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Generate Content',
+				name: 'Write with your persona',
 				value: 'generate',
 				action: 'Write with your persona',
-				description: 'Generate content using your writing personas',
+				description: 'Write with your ToneClone persona',
 				routing: {
 					request: {
 						method: 'POST',
@@ -55,7 +55,7 @@ export const queryDescription: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Select the writing persona to use for content generation. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+		description: 'Select the ToneClone persona to use for writing. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
 	},
 	{
 		displayName: 'Prompt',
@@ -69,7 +69,7 @@ export const queryDescription: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The prompt or instruction for content generation',
+		description: 'The prompt or instruction for what to write',
 		placeholder: 'Write a professional email to follow up on our meeting...',
 	},
 	{
@@ -109,41 +109,8 @@ export const queryDescription: INodeProperties[] = [
 					rows: 3,
 				},
 				default: '',
-				description: 'Additional context for the content generation',
+				description: 'Additional context for the writing',
 				placeholder: 'We discussed quarterly goals and budget allocation...',
-			},
-			{
-				displayName: 'Formality Level',
-				name: 'formality',
-				type: 'number',
-				typeOptions: {
-					minValue: 1,
-					maxValue: 10,
-				},
-				default: 5,
-				description: 'How formal the content should be (1=casual, 10=very formal)',
-			},
-			{
-				displayName: 'Reading Level',
-				name: 'readingLevel',
-				type: 'number',
-				typeOptions: {
-					minValue: 1,
-					maxValue: 20,
-				},
-				default: 12,
-				description: 'Target reading level (grade level)',
-			},
-			{
-				displayName: 'Target Word Count',
-				name: 'length',
-				type: 'number',
-				typeOptions: {
-					minValue: 10,
-					maxValue: 2000,
-				},
-				default: 200,
-				description: 'Target word count for the generated content',
 			},
 		],
 	},

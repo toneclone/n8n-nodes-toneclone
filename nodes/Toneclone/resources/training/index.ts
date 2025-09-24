@@ -143,7 +143,7 @@ export const trainingDescription: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Name for the text file (will have .txt extension)',
+		description: 'Name for the training file',
 		placeholder: 'my-training-content',
 	},
 	{
