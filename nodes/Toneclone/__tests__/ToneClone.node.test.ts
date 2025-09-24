@@ -94,7 +94,7 @@ describe('ToneClone Node', () => {
 			if (!queryOption) {
 				throw new Error('query option not found');
 			}
-			expect(queryOption.name).toBe('Write with your persona');
+			expect(queryOption.name).toBe('Write with Your Persona');
 
 			expect(trainingOption).toBeDefined();
 			if (!trainingOption) {
