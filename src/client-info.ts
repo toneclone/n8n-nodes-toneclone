@@ -11,7 +11,7 @@ export interface ClientInfo {
 
 const NODE_CLIENT_NAME = 'n8n';
 const NODE_CLIENT_CHANNEL = 'n8n';
-const NODE_VERSION = '1.0.0'; // Keep in sync with package.json version
+const NODE_VERSION = '1.0.1'; // Keep in sync with package.json version
 
 /**
  * Get the environment based on the API URL
