@@ -83,7 +83,7 @@ export class ToneClone implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Write with your persona',
+						name: 'Write with Your Persona',
 						value: 'query',
 						description: 'Write with your ToneClone persona',
 					},
@@ -107,9 +107,9 @@ export class ToneClone implements INodeType {
 					let credentials;
 					try {
 						credentials = await this.getCredentials('tonecloneApi');
-					} catch (credError) {
+					} catch {
 						return [{
-							name: 'Please configure credentials first',
+							name: 'Please Configure Credentials First',
 							value: '',
 							description: 'Set up your ToneClone API credentials to load personas',
 						}];
@@ -117,7 +117,7 @@ export class ToneClone implements INodeType {
 
 					if (!credentials) {
 						return [{
-							name: 'Please configure credentials first',
+							name: 'Please Configure Credentials First',
 							value: '',
 							description: 'Set up your ToneClone API credentials to load personas',
 						}];
@@ -130,9 +130,9 @@ export class ToneClone implements INodeType {
 
 					if (!apiKey || apiKey === 'your_api_key_here' || apiKey === 'undefined' || apiKey === 'null') {
 						return [{
-							name: 'Please configure API key',
+							name: 'Please Configure API Key',
 							value: '',
-							description: `Set up your ToneClone API key to load personas. Current value: ${apiKey}`,
+							description: 'Set up your ToneClone API key to load personas. Current value: ,.',
 						}];
 					}
 
@@ -144,7 +144,7 @@ export class ToneClone implements INodeType {
 					};
 
 					// First, try to get user personas
-					let userPersonas: any[] = [];
+					let userPersonas: { name: string; personaId: string; trainingStatus?: string }[] = [];
 					try {
 						const userPersonasResponse = await this.helpers.httpRequestWithAuthentication.call(
 							this,
@@ -157,7 +157,7 @@ export class ToneClone implements INodeType {
 								json: true,
 							},
 						);
-						userPersonas = Array.isArray(userPersonasResponse) ? userPersonasResponse : [];
+						userPersonas = Array.isArray(userPersonasResponse) ? userPersonasResponse as { name: string; personaId: string; trainingStatus?: string }[] : [];
 					} catch (userError) {
 						console.error('Failed to load user personas:', userError);
 						// Continue with built-in personas only
@@ -177,7 +177,7 @@ export class ToneClone implements INodeType {
 								json: true,
 							},
 						);
-						builtInPersonas = Array.isArray(builtInResponse) ? builtInResponse : [];
+						builtInPersonas = Array.isArray(builtInResponse) ? builtInResponse as { name: string; personaId: string }[] : [];
 					} catch (builtInError) {
 						console.error('Failed to load built-in personas:', builtInError);
 						// Built-in personas are optional; continue without them
@@ -185,7 +185,9 @@ export class ToneClone implements INodeType {
 
 					// If we have no personas at all, throw a helpful error
 					if (userPersonas.length === 0 && builtInPersonas.length === 0) {
-						throw new Error('No personas found. Please create a persona at https://app.toneclone.ai or check your API credentials.');
+						throw new NodeApiError(this.getNode(), {
+							message: 'No personas found. Please create a persona at https://app.toneclone.ai or check your API credentials.',
+						} as JsonObject);
 					}
 
 					const markedBuiltInPersonas = builtInPersonas.map((persona: { name: string; personaId: string }) => ({
@@ -222,9 +224,9 @@ export class ToneClone implements INodeType {
 					let credentials;
 					try {
 						credentials = await this.getCredentials('tonecloneApi');
-					} catch (credError) {
+					} catch {
 						return [{
-							name: 'Please configure credentials first',
+							name: 'Please Configure Credentials First',
 							value: '',
 							description: 'Set up your ToneClone API credentials to load knowledge cards',
 						}];
@@ -232,7 +234,7 @@ export class ToneClone implements INodeType {
 
 					if (!credentials) {
 						return [{
-							name: 'Please configure credentials first',
+							name: 'Please Configure Credentials First',
 							value: '',
 							description: 'Set up your ToneClone API credentials to load knowledge cards',
 						}];
@@ -245,9 +247,9 @@ export class ToneClone implements INodeType {
 
 					if (!apiKey || apiKey === 'your_api_key_here' || apiKey === 'undefined' || apiKey === 'null') {
 						return [{
-							name: 'Please configure API key',
+							name: 'Please Configure API Key',
 							value: '',
-							description: `Set up your ToneClone API key to load knowledge cards. Current value: ${apiKey}`,
+							description: 'Set up your ToneClone API key to load knowledge cards. Current value: ,.',
 						}];
 					}
 

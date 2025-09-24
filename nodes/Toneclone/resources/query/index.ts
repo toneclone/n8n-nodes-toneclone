@@ -13,7 +13,7 @@ export const queryDescription: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Write with your persona',
+				name: 'Write with Your Persona',
 				value: 'generate',
 				action: 'Write with your persona',
 				description: 'Write with your ToneClone persona',

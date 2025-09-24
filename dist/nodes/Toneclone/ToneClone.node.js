@@ -74,7 +74,7 @@ class ToneClone {
                     noDataExpression: true,
                     options: [
                         {
-                            name: 'Write with your persona',
+                            name: 'Write with Your Persona',
                             value: 'query',
                             description: 'Write with your ToneClone persona',
                         },
@@ -98,16 +98,16 @@ class ToneClone {
                         try {
                             credentials = await this.getCredentials('tonecloneApi');
                         }
-                        catch (credError) {
+                        catch {
                             return [{
-                                    name: 'Please configure credentials first',
+                                    name: 'Please Configure Credentials First',
                                     value: '',
                                     description: 'Set up your ToneClone API credentials to load personas',
                                 }];
                         }
                         if (!credentials) {
                             return [{
-                                    name: 'Please configure credentials first',
+                                    name: 'Please Configure Credentials First',
                                     value: '',
                                     description: 'Set up your ToneClone API credentials to load personas',
                                 }];
@@ -116,9 +116,9 @@ class ToneClone {
                         const apiUrl = String(credentials.apiUrl || credentials.api_url || credentials.url || 'https://api.toneclone.ai');
                         if (!apiKey || apiKey === 'your_api_key_here' || apiKey === 'undefined' || apiKey === 'null') {
                             return [{
-                                    name: 'Please configure API key',
+                                    name: 'Please Configure API Key',
                                     value: '',
-                                    description: `Set up your ToneClone API key to load personas. Current value: ${apiKey}`,
+                                    description: 'Set up your ToneClone API key to load personas. Current value: ,.',
                                 }];
                         }
                         const finalApiUrl = apiUrl.startsWith('http') ? apiUrl : `https://${apiUrl}`;
@@ -154,7 +154,9 @@ class ToneClone {
                             console.error('Failed to load built-in personas:', builtInError);
                         }
                         if (userPersonas.length === 0 && builtInPersonas.length === 0) {
-                            throw new Error('No personas found. Please create a persona at https://app.toneclone.ai or check your API credentials.');
+                            throw new n8n_workflow_1.NodeApiError(this.getNode(), {
+                                message: 'No personas found. Please create a persona at https://app.toneclone.ai or check your API credentials.',
+                            });
                         }
                         const markedBuiltInPersonas = builtInPersonas.map((persona) => ({
                             ...persona,
@@ -185,16 +187,16 @@ class ToneClone {
                         try {
                             credentials = await this.getCredentials('tonecloneApi');
                         }
-                        catch (credError) {
+                        catch {
                             return [{
-                                    name: 'Please configure credentials first',
+                                    name: 'Please Configure Credentials First',
                                     value: '',
                                     description: 'Set up your ToneClone API credentials to load knowledge cards',
                                 }];
                         }
                         if (!credentials) {
                             return [{
-                                    name: 'Please configure credentials first',
+                                    name: 'Please Configure Credentials First',
                                     value: '',
                                     description: 'Set up your ToneClone API credentials to load knowledge cards',
                                 }];
@@ -203,9 +205,9 @@ class ToneClone {
                         const apiUrl = String(credentials.apiUrl || credentials.api_url || credentials.url || 'https://api.toneclone.ai');
                         if (!apiKey || apiKey === 'your_api_key_here' || apiKey === 'undefined' || apiKey === 'null') {
                             return [{
-                                    name: 'Please configure API key',
+                                    name: 'Please Configure API Key',
                                     value: '',
-                                    description: `Set up your ToneClone API key to load knowledge cards. Current value: ${apiKey}`,
+                                    description: 'Set up your ToneClone API key to load knowledge cards. Current value: ,.',
                                 }];
                         }
                         const finalApiUrl = apiUrl.startsWith('http') ? apiUrl : `https://${apiUrl}`;
