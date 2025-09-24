@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-toneclone",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Write with AI without sounding like AI. Write with AI using your unique voice and style with a model trained on your writing.\n\nTo get started, you'll need a ToneClone API key from https://app.toneclone.ai/api-keys",
   "license": "MIT",
   "homepage": "https://github.com/toneclone/n8n-nodes-toneclone#readme",
