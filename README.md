@@ -1,8 +1,8 @@
 # ToneClone for n8n
 
-ToneClone for n8n is an [n8n](https://n8n.io/) community node that lets you generate and train ToneClone personas directly from your workflows. Use it to keep AI-generated content on-brand, capture new training material, and orchestrate ToneClone alongside the rest of your automation stack.
+ToneClone for n8n is an [n8n](https://n8n.io/) community node that lets you write with and train ToneClone personas directly from your workflows. Use it to write with AI without sounding like AI - in your unique voice and style, capture new training material, and orchestrate ToneClone alongside the rest of your automation stack.
 
-- **Generate persona content:** Ask a trained persona to draft emails, posts, documents, and more.
+- **Write content with your persona:** Ask a trained persona to draft emails, posts, documents, and more.
 - **Submit new training data:** Upload plain text or binary files (PDF, DOCX, TXT, etc.) to improve a persona.
 - **Work with knowledge cards:** Pull structured knowledge into your generations so responses stay accurate.
 
@@ -25,7 +25,7 @@ npm install n8n-nodes-toneclone
 
 The node uses a single credential type: **ToneClone API**.
 
-1. Sign in to [ToneClone](https://toneclone.ai) and generate an API key from *Settings → Developer*.
+1. Sign in to [ToneClone](https://app.toneclone.ai/api-keys) and generate an API key from *Settings → API Keys*.
 2. In n8n, open *Credentials → New → ToneClone API*.
 3. Paste your API key (`tc_…`) and leave the API URL set to `https://api.toneclone.ai` unless you are targeting a private environment.
 4. Click *Test* to verify connectivity.
@@ -36,18 +36,17 @@ The node uses a single credential type: **ToneClone API**.
 
 ### Write with your persona (`resource = query`)
 
-- **Generate Content:** Produce text from a persona using an input prompt.
+- **Write with Your Persona:** Produce text from a persona using an input prompt.
   - *Persona* – Select or reference a persona ID.
-  - *Prompt* – Instruction or question for ToneClone.
-  - *Knowledge Card IDs* (optional) – Enrich the response with structured knowledge.
-  - *Additional Options* (optional) – Control formality, reading level, and target length.
+  - *Prompt* – Instruction or writing prompt for ToneClone.
+  - *Knowledge Card IDs* (optional) – Enrich the prompt with stored knowledge.
 
 ### Training (`resource = training`)
 
-- **Upload Text:** Provide raw text that will be converted to a `.txt` file and attached to a persona.
+- **Upload Text:** Provide raw text that will be used to train your persona's writing style
   - *Persona* – Target persona to train.
-  - *Content* – Text body.
-  - *Filename* – Saved as `<filename>.txt` if no extension is provided.
+  - *Content* – Writing sample
+  - *Filename* – A name for the writing sample
 
 - **Upload File:** Attach an existing binary file from the workflow input.
   - *Persona* – Target persona to train.
@@ -58,15 +57,15 @@ The node uses a single credential type: **ToneClone API**.
 ### Generate a follow-up email
 
 1. Start with a **HTTP Request** or **Trigger** node that captures meeting details.
-2. Add **ToneClone → Generate Content**, select a persona, and map the meeting summary into the *Prompt*.
-3. Optional: attach a knowledge card containing your product messaging.
+2. Add **ToneClone → Write with Your Persona**, select a persona, and map the meeting summary into the *Prompt*.
+3. Optional: attach a knowledge card containing your personal details or contact info.
 4. Use the response in downstream steps (e.g., send via Gmail or Slack).
 
-### Upload customer transcripts for training
+### Upload an existing document for training
 
-1. Fetch or receive a transcript file, ensuring it is stored in the `data` binary property.
+1. Fetch or receive a document or writing sample file, ensuring it is stored in the `data` binary property.
 2. Add **ToneClone → Upload File**, choose the persona, and set *Input Binary Field* to `data`.
-3. ToneClone stores the file, associates it with the persona, and returns the resulting file metadata.
+3. ToneClone stores the file, associates it with the persona for training, and returns the resulting file metadata.
 
 ## Compatibility
 
@@ -88,18 +87,12 @@ npm test
 npm run build
 ```
 
-Run the helper script `./test-n8n.sh` to spin up a local n8n instance with the compiled node mounted at runtime.
-
 ## Resources
 
-- [ToneClone Documentation](https://docs.toneclone.ai/)
-- [ToneClone API Authentication](https://docs.toneclone.ai/api/authentication)
+- [ToneClone Documentation](https://toneclone.ai/n8n)
+- [ToneClone API Authentication](https://toneclone.ai/api)
 - [n8n Community Nodes Guide](https://docs.n8n.io/integrations/#community-nodes)
-
-## Version History
-
-- **0.1.0** – Initial public release of the ToneClone community node.
 
 ## License
 
-MIT © ToneClone
+MIT - ToneClone

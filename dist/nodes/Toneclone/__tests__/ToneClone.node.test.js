@@ -118,7 +118,7 @@ describe('ToneClone Node', () => {
             expect(personaParam.type).toBe('options');
             expect((_a = personaParam.typeOptions) === null || _a === void 0 ? void 0 : _a.loadOptionsMethod).toBe('getPersonas');
         });
-        test('should have prompt parameter for content generation', () => {
+        test('should have prompt parameter for writing with persona', () => {
             const promptParam = node.description.properties.find(prop => prop.name === 'prompt');
             expect(promptParam).toBeDefined();
             expect(promptParam === null || promptParam === void 0 ? void 0 : promptParam.type).toBe('string');
