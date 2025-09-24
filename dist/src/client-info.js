@@ -5,7 +5,7 @@ exports.clientInfoToHeader = clientInfoToHeader;
 exports.getClientHeader = getClientHeader;
 const NODE_CLIENT_NAME = 'n8n';
 const NODE_CLIENT_CHANNEL = 'n8n';
-const NODE_VERSION = '1.0.2';
+const NODE_VERSION = '1.0.3';
 function getClientEnv(apiUrl) {
     const url = apiUrl.toLowerCase();
     if (url.includes('localhost') || url.includes('127.0.0.1')) {
